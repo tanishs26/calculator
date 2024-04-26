@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <script>
+      function add(a, ...b) {
+        sum = a;
+        for (i = 0; i < b.length; i++) {
+          sum += b[i];
+        }
+        return sum;
+      }
+      console.log(add(2, 3, 4));
+      //subtraction
+      function sub(a, ...b) {
+        sum = a;
+        for (i = 0; i < b.length; i++) {
+          sum-=b[i];
+        }
+        return sum;
+      }
+      console.log(sub(12,3));
+
+    //Multiplication
+    function mul(a, ...b) {
+        res = a;
+        for (i = 0; i < b.length; i++) {
+          res*=b[i];
+        }
+        return res;
+      }
+      console.log(mul(12,3));
+      //Division
+      function div(a, ...b) {
+        res = a;
+        for (i = 0; i < b.length; i++) {
+          res/=b[i];
+        }
+        return res;
+      }
+      console.log(div(12,3));
+    </script>
+  </body>
+</html>
