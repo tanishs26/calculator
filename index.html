@@ -4,45 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script>
-      function add(a, ...b) {
-        sum = a;
-        for (i = 0; i < b.length; i++) {
-          sum += b[i];
-        }
-        return sum;
-      }
-      console.log(add(2, 3, 4));
-      //subtraction
-      function sub(a, ...b) {
-        sum = a;
-        for (i = 0; i < b.length; i++) {
-          sum-=b[i];
-        }
-        return sum;
-      }
-      console.log(sub(12,3));
-
-    //Multiplication
-    function mul(a, ...b) {
-        res = a;
-        for (i = 0; i < b.length; i++) {
-          res*=b[i];
-        }
-        return res;
-      }
-      console.log(mul(12,3));
-      //Division
-      function div(a, ...b) {
-        res = a;
-        for (i = 0; i < b.length; i++) {
-          res/=b[i];
-        }
-        return res;
-      }
-      console.log(div(12,3));
-    </script>
+    <div class="calculator">
+      <div>
+        <input type="text" />
+      </div>
+      <div class="line">
+        <button id="ac">AC</button>
+        <button id="del">DEL</button>
+        <button id="modulus">%</button>
+        <button id="division">/</button>
+      </div>
+      <div class="line">
+        <button id="numbers">7</button>
+        <button id="numbers">8</button>
+        <button id="numbers">9</button>
+        <button id="multiply">*</button>
+      </div>
+      <div class="line">
+        <button id="numbers">4</button>
+        <button id="numbers">5</button>
+        <button id="numbers">6</button>
+        <button id="subtract">-</button>
+      </div>
+      <div class="line">
+        <button id="numbers">1</button>
+        <button id="numbers">2</button>
+        <button id="numbers">3</button>
+        <button id="subtract">+</button>
+      </div>
+      <div class="line">
+        <button id="numbers" class="zero">0</button>
+        <button id="decimal">.</button>
+        <button id="equals">=</button>
+      </div
+    </div>
   </body>
 </html>
