@@ -1,34 +1,40 @@
 function add(a, ...b) {
-  sum = a;
-  for (i = 0; i < b.length; i++) {
+  let sum = a;
+  for (let i = 0; i < b.length; i++) {
     sum += b[i];
   }
   return sum;
 }
-//subtraction
+
 function sub(a, ...b) {
-  sum = a;
-  for (i = 0; i < b.length; i++) {
+  let sum = a;
+  for (let i = 0; i < b.length; i++) {
     sum -= b[i];
   }
   return sum;
 }
 
-//Multiplication
 function mul(a, ...b) {
-  result = a;
-  for (i = 0; i < b.length; i++) {
+  let result = a;
+  for (let i = 0; i < b.length; i++) {
     result *= b[i];
   }
-  return result;
+  return Math.round(result * 10) / 10;
 }
-//Division
+
 function div(a, ...b) {
-  result = a;
-  for (i = 0; i < b.length; i++) {
+  let result = a;
+  for (let i = 0; i < b.length; i++) {
     result /= b[i];
   }
-  return result;
+  return Math.round(result * 10) / 10;
+}
+function mod(a, ...b) {
+  let result = a;
+  for (let i = 0; i < b.length; i++) {
+    result %= b[i];
+  }
+  return Math.round(result * 10) / 10;
 }
 
 function operate(num1, num2, operator) {
@@ -36,23 +42,55 @@ function operate(num1, num2, operator) {
     num1 = +num1;
   }
   if (!Number.isInteger(num2)) {
-    num1 = +num2;
+    num2 = +num2;
   }
   switch (operator) {
     case "+":
-      console.log(add(num1, num2));
-      break;
+      return add(num1, num2);
     case "-":
-      console.log(sub(num1, num2));
-      break;
+      return sub(num1, num2);
     case "*":
-      console.log(mul(num1, num2));
-      break;
+      return mul(num1, num2);
     case "/":
-      console.log(div(num1, num2));
-      break;
+      return div(num1, num2);
+    case "%":
+      return mod(num1, num2);
     default:
-      console.log("Invalid Input");
+      return "Invalid Input";
   }
 }
-operate("2", 3,"");
+const display = document.getElementById("input");
+const buttons = document.querySelectorAll("#numbers");
+display.value = "0";
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (display.value === "0") display.value = button.innerText;
+    else display.value += button.innerText;
+  });
+});
+let operator = "";
+let num1 = 0;
+let num2 = 0;
+
+//operator-->
+document.querySelectorAll("#operator").forEach((button) => {
+  button.addEventListener("click", () => {
+    num1 = display.value;
+    operator = button.innerText;
+    display.value = "";
+  });
+});
+//clear-->
+document.getElementById("del").addEventListener("click", () => {
+  num1 = 0;
+  operator = "";
+  display.value = "0";
+});
+
+//equals
+document.querySelector("#equals").addEventListener("click", () => {
+  num2 = display.value;
+  display.value = operate(num1, num2, operator);
+});
+
